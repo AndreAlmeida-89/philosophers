@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CEA5F9502A251118000E2A29 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F94F2A251118000E2A29 /* main.c */; };
+		CEA5F9582A253402000E2A29 /* ft_now.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F9572A253402000E2A29 /* ft_now.c */; };
+		CEA5F95A2A253504000E2A29 /* ft_msleep.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F9592A253504000E2A29 /* ft_msleep.c */; };
+		CEA5F95C2A2535C1000E2A29 /* ft_init_forks.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F95B2A2535C1000E2A29 /* ft_init_forks.c */; };
+		CEA5F95E2A253B76000E2A29 /* ft_init_config.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F95D2A253B76000E2A29 /* ft_init_config.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,11 @@
 /* Begin PBXFileReference section */
 		CEA5F94C2A251118000E2A29 /* philosophers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = philosophers; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA5F94F2A251118000E2A29 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		CEA5F9562A25116B000E2A29 /* philosophers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = philosophers.h; sourceTree = "<group>"; };
+		CEA5F9572A253402000E2A29 /* ft_now.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_now.c; sourceTree = "<group>"; };
+		CEA5F9592A253504000E2A29 /* ft_msleep.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_msleep.c; sourceTree = "<group>"; };
+		CEA5F95B2A2535C1000E2A29 /* ft_init_forks.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_init_forks.c; sourceTree = "<group>"; };
+		CEA5F95D2A253B76000E2A29 /* ft_init_config.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_init_config.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,11 @@
 			isa = PBXGroup;
 			children = (
 				CEA5F94F2A251118000E2A29 /* main.c */,
+				CEA5F9562A25116B000E2A29 /* philosophers.h */,
+				CEA5F95D2A253B76000E2A29 /* ft_init_config.c */,
+				CEA5F95B2A2535C1000E2A29 /* ft_init_forks.c */,
+				CEA5F9572A253402000E2A29 /* ft_now.c */,
+				CEA5F9592A253504000E2A29 /* ft_msleep.c */,
 			);
 			path = philosophers;
 			sourceTree = "<group>";
@@ -119,7 +133,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA5F9582A253402000E2A29 /* ft_now.c in Sources */,
+				CEA5F95E2A253B76000E2A29 /* ft_init_config.c in Sources */,
+				CEA5F95C2A2535C1000E2A29 /* ft_init_forks.c in Sources */,
 				CEA5F9502A251118000E2A29 /* main.c in Sources */,
+				CEA5F95A2A253504000E2A29 /* ft_msleep.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
