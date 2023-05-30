@@ -16,7 +16,7 @@ pthread_mutex_t *ft_init_forks(int amount)
     if (!forks)
         return (NULL);
     i = -1;
-    while (i++)
+    while (++i < amount)
     {
         if (pthread_mutex_init(&forks[i], NULL) != 0)
         {
@@ -25,6 +25,7 @@ pthread_mutex_t *ft_init_forks(int amount)
             free(forks);
             return (NULL);
         }
+        printf("Fork[%d]: %p\n", i, &forks[i]);
     }
     return (forks);
 }

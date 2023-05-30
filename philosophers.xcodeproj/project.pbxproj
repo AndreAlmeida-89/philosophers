@@ -12,6 +12,12 @@
 		CEA5F95A2A253504000E2A29 /* ft_msleep.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F9592A253504000E2A29 /* ft_msleep.c */; };
 		CEA5F95C2A2535C1000E2A29 /* ft_init_forks.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F95B2A2535C1000E2A29 /* ft_init_forks.c */; };
 		CEA5F95E2A253B76000E2A29 /* ft_init_config.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F95D2A253B76000E2A29 /* ft_init_config.c */; };
+		CEA5F9602A254CF6000E2A29 /* ft_atoi.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F95F2A254CF6000E2A29 /* ft_atoi.c */; };
+		CEA5F9642A254EB1000E2A29 /* ft_init_table.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F9632A254EB1000E2A29 /* ft_init_table.c */; };
+		CEA5F9662A2620D3000E2A29 /* ft_init_philosopher.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F9652A2620D3000E2A29 /* ft_init_philosopher.c */; };
+		CEA5F9682A26352C000E2A29 /* ft_create_philo_threads.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F9672A26352C000E2A29 /* ft_create_philo_threads.c */; };
+		CEA5F96A2A26363F000E2A29 /* ft_routine.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F9692A26363F000E2A29 /* ft_routine.c */; };
+		CEA5F96C2A26399F000E2A29 /* ft_wait_threads.c in Sources */ = {isa = PBXBuildFile; fileRef = CEA5F96B2A26399F000E2A29 /* ft_wait_threads.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +40,12 @@
 		CEA5F9592A253504000E2A29 /* ft_msleep.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_msleep.c; sourceTree = "<group>"; };
 		CEA5F95B2A2535C1000E2A29 /* ft_init_forks.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_init_forks.c; sourceTree = "<group>"; };
 		CEA5F95D2A253B76000E2A29 /* ft_init_config.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_init_config.c; sourceTree = "<group>"; };
+		CEA5F95F2A254CF6000E2A29 /* ft_atoi.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_atoi.c; sourceTree = "<group>"; };
+		CEA5F9632A254EB1000E2A29 /* ft_init_table.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_init_table.c; sourceTree = "<group>"; };
+		CEA5F9652A2620D3000E2A29 /* ft_init_philosopher.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_init_philosopher.c; sourceTree = "<group>"; };
+		CEA5F9672A26352C000E2A29 /* ft_create_philo_threads.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_create_philo_threads.c; sourceTree = "<group>"; };
+		CEA5F9692A26363F000E2A29 /* ft_routine.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_routine.c; sourceTree = "<group>"; };
+		CEA5F96B2A26399F000E2A29 /* ft_wait_threads.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_wait_threads.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +79,17 @@
 			isa = PBXGroup;
 			children = (
 				CEA5F94F2A251118000E2A29 /* main.c */,
+				CEA5F96B2A26399F000E2A29 /* ft_wait_threads.c */,
+				CEA5F9672A26352C000E2A29 /* ft_create_philo_threads.c */,
+				CEA5F9632A254EB1000E2A29 /* ft_init_table.c */,
 				CEA5F9562A25116B000E2A29 /* philosophers.h */,
 				CEA5F95D2A253B76000E2A29 /* ft_init_config.c */,
 				CEA5F95B2A2535C1000E2A29 /* ft_init_forks.c */,
+				CEA5F9652A2620D3000E2A29 /* ft_init_philosopher.c */,
+				CEA5F9692A26363F000E2A29 /* ft_routine.c */,
 				CEA5F9572A253402000E2A29 /* ft_now.c */,
 				CEA5F9592A253504000E2A29 /* ft_msleep.c */,
+				CEA5F95F2A254CF6000E2A29 /* ft_atoi.c */,
 			);
 			path = philosophers;
 			sourceTree = "<group>";
@@ -135,9 +153,15 @@
 			files = (
 				CEA5F9582A253402000E2A29 /* ft_now.c in Sources */,
 				CEA5F95E2A253B76000E2A29 /* ft_init_config.c in Sources */,
+				CEA5F96C2A26399F000E2A29 /* ft_wait_threads.c in Sources */,
+				CEA5F9602A254CF6000E2A29 /* ft_atoi.c in Sources */,
+				CEA5F9642A254EB1000E2A29 /* ft_init_table.c in Sources */,
+				CEA5F96A2A26363F000E2A29 /* ft_routine.c in Sources */,
 				CEA5F95C2A2535C1000E2A29 /* ft_init_forks.c in Sources */,
 				CEA5F9502A251118000E2A29 /* main.c in Sources */,
 				CEA5F95A2A253504000E2A29 /* ft_msleep.c in Sources */,
+				CEA5F9662A2620D3000E2A29 /* ft_init_philosopher.c in Sources */,
+				CEA5F9682A26352C000E2A29 /* ft_create_philo_threads.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
