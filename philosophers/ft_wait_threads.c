@@ -19,5 +19,5 @@ int ft_wait_threads(t_table table)
 //        if (pthread_detach(table.philos[i].thread) != 0)
 //            return (FALSE);
     }
-    return (FALSE);
+    return (TRUE);
 }

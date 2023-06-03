@@ -1,5 +1,5 @@
 //
-//  ft_create_philo_threads.c
+//  ft_start_threads.c
 //  philosophers
 //
 //  Created by Andre Almeida on 30/05/23.
@@ -7,7 +7,7 @@
 
 #include "philosophers.h"
 
-int ft_create_philo_threads(t_table table)
+int ft_start_threads(t_table table)
 {
     int i = -1;
     while (++i < table.config.size)

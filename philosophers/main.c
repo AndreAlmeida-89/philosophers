@@ -18,9 +18,11 @@ int main(int argc, const char **argv)
         return (1);
     if (ft_init_table(config, &table) == FALSE)
         return (2);
-    if (ft_create_philo_threads(table) == FALSE)
+    if (ft_start_threads(table) == FALSE)
         return (3);
     if (ft_wait_threads(table) == FALSE)
         return (4);
-    return 0;
+    if (ft_destroy(&table) == FALSE)
+        return (5);
+    return (0);
 }

@@ -49,7 +49,7 @@ static int ft_is_numeric(int argc, const char **argv)
         j = 0;
         while (argv[i][j])
             if (ft_isdigit(argv[i][j++]) == FALSE)
-                return (0);
+                return (FALSE);
     }
        
     return (TRUE);

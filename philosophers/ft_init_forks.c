@@ -25,7 +25,6 @@ pthread_mutex_t *ft_init_forks(int amount)
             free(forks);
             return (NULL);
         }
-        printf("Fork[%d]: %p\n", i, &forks[i]);
     }
     return (forks);
 }
