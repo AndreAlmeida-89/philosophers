@@ -7,13 +7,11 @@
 
 #include "philosophers.h"
 
-
-
 int main(int argc, const char **argv)
 {
     t_config    config;
     t_table     table;
-    
+
     if (ft_init_config(argc, argv, &config) == FALSE)
         return (1);
     if (ft_init_table(config, &table) == FALSE)
