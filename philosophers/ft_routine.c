@@ -29,14 +29,16 @@ void *ft_routine(void *arg)
     
     p = (t_philo *)arg;
     should_eat_infinitely = p->number_of_meals == 0;
-    while (p->table->dead_philosopher_id == 0 && (should_eat_infinitely || p->number_of_meals))
+    while (p->table->dead_philosopher_id == 0
+           && (should_eat_infinitely || p->number_of_meals))
     {
-        if ((ft_now() - p->last_meal_time) < p->table->config.time_to_die)
+        if ((ft_now() - p->last_meal_time) > p->table->config.time_to_die)
         {
+            printf(">DIFF> %ld tD: %d\n", ft_now() - p->last_meal_time, p->table->config.time_to_die);
             pthread_mutex_lock(&p->table->death_mutex);
-            ft_print_action(p, DIE);
             p->table->dead_philosopher_id = p->id;
-//            pthread_mutex_unlock(&p->table->death_mutex);
+            pthread_mutex_unlock(&p->table->death_mutex);
+            ft_print_action(p, DIE);
             break;;
         }
         ft_eat(p);

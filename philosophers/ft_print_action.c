@@ -25,6 +25,11 @@ static const char *ft_get_action_str(t_action action)
 
 int ft_print_action(t_philo *p, t_action action)
 {
-    printf("%ld\t\t%d\t%s\n", ft_now() - p->table->start_time, p->id, ft_get_action_str(action));
+    if (action != DIE && p->table->dead_philosopher_id)
+        return (FALSE);
+    printf("%ld\t\t%d\t%s\n",
+           ft_now() - p->table->start_time,
+           p->id,
+           ft_get_action_str(action));
     return (TRUE);
 }
