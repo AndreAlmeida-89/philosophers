@@ -23,11 +23,11 @@ OBJ		=	$(SRC:%.c=%.o)
 
 OBJ_B	=	$(SRC_B:%.c=%_b.o)
 
-CC		=	gcc
+CC		=	cc
 
 RM		=	rm -f
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -pthread -fsanitize=thread -g
 
 %.o:		%.c
 			$(CC) $(CFLAGS) -c $< -o $@
@@ -36,10 +36,10 @@ CFLAGS	=	-Wall -Wextra -Werror
 			$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):	$(OBJ)
-			$(CC) $(OBJ) -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 $(NAME_B):	$(OBJ_B)
-			$(CC) $(OBJ_B) -o $(NAME_B)
+			$(CC) $(CFLAGS) $(OBJ_B) -o $(NAME_B)
 
 all:		$(NAME)
 

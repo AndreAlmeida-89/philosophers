@@ -10,7 +10,7 @@
 int ft_destroy_threads(t_table *table)
 {
     int i;
-    
+
     i= -1;
     while (++i < table->config.size)
         pthread_detach(table->philos[i].thread);
@@ -21,7 +21,7 @@ int ft_destroy_threads(t_table *table)
 int ft_destroy_mutex(t_table *table)
 {
     int i;
-    
+
     i= -1;
     while (++i < table->config.size)
     if (pthread_mutex_destroy(&table->forks[i]) != 0)
@@ -30,9 +30,12 @@ int ft_destroy_mutex(t_table *table)
         return (FALSE);
     }
     free(table->forks);
+	if (pthread_mutex_destroy(&table->death_mutex) != 0)
+		return (FALSE);
+	if (pthread_mutex_destroy(&table->print_mutex) != 0)
+		return (FALSE);
     return (TRUE);
 }
-
 
 int ft_destroy(t_table *table)
 {

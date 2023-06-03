@@ -34,6 +34,7 @@ typedef struct s_table
 {
     pthread_mutex_t         *forks;
     pthread_mutex_t         death_mutex;
+	pthread_mutex_t         print_mutex;
     time_t                  start_time;
     int                     dead_philosopher_id;
     t_config                config;
@@ -71,5 +72,6 @@ void                *ft_routine(void *arg);
 int                 ft_wait_threads(t_table table);
 int                 ft_destroy(t_table *table);
 int                 ft_print_action(t_philo *p, t_action action);
+int					ft_wait(int milliseconds, t_table *table);
 
 #endif /* philosophers_h */

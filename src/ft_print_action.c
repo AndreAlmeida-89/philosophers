@@ -25,11 +25,20 @@ static const char *ft_get_action_str(t_action action)
 
 int ft_print_action(t_philo *p, t_action action)
 {
-    if (action != DIE && p->table->dead_philosopher_id)
-        return (FALSE);
+    pthread_mutex_lock(&p->table->death_mutex);
+	if (action != DIE && p->table->dead_philosopher_id)
+	{
+        pthread_mutex_unlock(&p->table->death_mutex);
+		return (FALSE);
+	}
+	pthread_mutex_unlock(&p->table->death_mutex);
+
+	
+	pthread_mutex_lock(&p->table->print_mutex);
     printf("%ld\t\t%d\t%s\n",
            ft_now() - p->table->start_time,
            p->id,
            ft_get_action_str(action));
+	pthread_mutex_unlock(&p->table->print_mutex);
     return (TRUE);
 }

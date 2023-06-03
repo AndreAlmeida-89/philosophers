@@ -15,6 +15,8 @@ int ft_init_table(t_config config, t_table *table)
         return (FALSE);
     if (pthread_mutex_init(&table->death_mutex, NULL) != 0)
         return (FALSE);
+	if (pthread_mutex_init(&table->print_mutex, NULL) != 0)
+        return (FALSE);
     table->config = config;
     i = -1;
     if (ft_init_philosophers(table) == FALSE)
