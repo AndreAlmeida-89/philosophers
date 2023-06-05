@@ -1,46 +1,31 @@
-//
-//  main.c
-//  philosophers
-//
-//  Created by Andre Almeida on 29/05/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: andde-so <andde-so@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/04 09:49:32 by andde-so          #+#    #+#             */
+/*   Updated: 2023/06/05 17:31:38 by andde-so         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "philosophers.h"
 
-
-void ft_check_for_deaths(void *args)
+int	main(int argc, const char **argv)
 {
-	t_table     *table;
+	t_config	config;
+	t_table		table;
 
-	table = (t_table *)args;
-	while (1)
-	{
-		pthread_mutex_lock(&table->death_mutex);
-		if (table->dead_philosopher_id)
-		{
-			pthread_mutex_unlock(&table->death_mutex);
-			break;
-		}
-		pthread_mutex_unlock(&table->death_mutex);
-	}
-}
-
-int main(int argc, const char **argv)
-{
-    t_config    config;
-    t_table     table;
-	// pthread_t	check_for_deaths;
-
-    if (ft_init_config(argc, argv, &config) == FALSE)
-        return (1);
-    if (ft_init_table(config, &table) == FALSE)
-        return (2);
-    if (ft_start_threads(table) == FALSE)
-        return (3);
-    if (ft_wait_threads(table) == FALSE)
-        return (4);
-	// ft_check_for_deaths(&table);
-    if (ft_destroy(&table) == FALSE)
-        return (5);
-    return (0);
+	if (ft_init_config(argc, argv, &config) == FALSE)
+		return (1);
+	if (ft_init_table(config, &table) == FALSE)
+		return (2);
+	if (ft_start_threads(table) == FALSE)
+		return (3);
+	if (ft_wait_threads(table) == FALSE)
+		return (4);
+	if (ft_destroy(&table) == FALSE)
+		return (5);
+	return (0);
 }

@@ -1,11 +1,16 @@
-//
-//  main.c
-//  philosophers
-//
-//  Created by Andre Almeida on 29/05/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: andde-so <andde-so@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/05 17:37:45 by andde-so          #+#    #+#             */
+/*   Updated: 2023/06/05 17:38:15 by andde-so         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main(int argc, const char **argv)
+int	main(int argc, const char **argv)
 {
-    return (0);
+	return (0);
 }

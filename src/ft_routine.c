@@ -1,37 +1,48 @@
-//
-//  ft_routine.c
-//  philosophers
-//
-//  Created by Andre Almeida on 30/05/23.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_routine.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: andde-so <andde-so@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/04 09:40:23 by andde-so          #+#    #+#             */
+/*   Updated: 2023/06/05 09:59:30 by andde-so         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "philosophers.h"
 
-static void    ft_eat(t_philo *p)
+static int	ft_eat(t_philo *p)
 {
 	pthread_mutex_lock(p->right_fork);
 	pthread_mutex_lock(p->left_fork);
 	ft_print_action(p, TAKE_FORK);
 	ft_print_action(p, TAKE_FORK);
-	p->last_meal_time = ft_now();
 	ft_print_action(p, EAT);
-	ft_wait(p->table->config.time_to_eat, p->table);
+	p->last_meal_time = ft_now();
+	if (ft_wait(p->table->config.time_to_eat, p) == FALSE)
+	{
+		pthread_mutex_unlock(p->left_fork);
+		pthread_mutex_unlock(p->right_fork);
+		return (FALSE);
+	}
 	p->number_of_meals--;
 	pthread_mutex_unlock(p->left_fork);
 	pthread_mutex_unlock(p->right_fork);
+	return (TRUE);
 }
 
-static void		ft_single_philosopher(t_philo *p)
+static void	ft_single_philosopher(t_philo *p)
 {
 	ft_print_action(p, TAKE_FORK);
 	usleep(p->table->config.time_to_eat * 1000);
 	ft_print_action(p, DIE);
 }
 
-void *ft_routine(void *arg)
+void	*ft_routine(void *arg)
 {
-	t_philo *p;
-	int     should_eat_infinitely;
+	t_philo	*p;
+	int		should_eat_infinitely;
 
 	p = (t_philo *)arg;
 	should_eat_infinitely = p->number_of_meals == 0;
@@ -42,27 +53,11 @@ void *ft_routine(void *arg)
 	}
 	while (should_eat_infinitely || p->number_of_meals)
 	{
-		pthread_mutex_lock(&p->table->death_mutex);
-		if (p->table->dead_philosopher_id)
-		{
-			pthread_mutex_unlock(&p->table->death_mutex);
-			break;
-		}
-		pthread_mutex_unlock(&p->table->death_mutex);
-		if ((ft_now() - p->last_meal_time) >= p->table->config.time_to_die)
-		{
-			pthread_mutex_lock(&p->table->death_mutex);
-			p->table->dead_philosopher_id = p->id;
-			pthread_mutex_unlock(&p->table->death_mutex);
-			usleep(7000);
-			ft_print_action(p, DIE);
-			break;
-		}
-		printf("last meal diff: %ld\n", ft_now() - p->last_meal_time);
-		ft_eat(p);
+		if (ft_eat(p) == FALSE)
+			break ;
 		ft_print_action(p, SLEEP);
-		if (ft_wait(p->table->config.time_to_sleep, p->table) == FALSE)
-			break;
+		if (ft_wait(p->table->config.time_to_sleep, p) == FALSE)
+			break ;
 		ft_print_action(p, THINK);
 	}
 	return (NULL);

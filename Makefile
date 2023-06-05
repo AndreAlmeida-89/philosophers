@@ -1,7 +1,7 @@
 SRC =		src/main.c					\
 			src/ft_atoi.c				\
 			src/ft_init_forks.c			\
-			src/ft_msleep.c				\
+			src/ft_wait.c				\
 			src/ft_routine.c			\
 			src/ft_destroy.c			\
 			src/ft_init_philosophers.c	\
@@ -52,5 +52,29 @@ fclean:		clean
 			$(RM) $(NAME) $(NAME_B)
 
 re:			fclean all
+
+test1:	all
+		@echo "The philosopher should not eat and should die."
+		./$(NAME) 1 800 200 200
+
+test2:	all
+		@echo "No philosopher should die."
+		./$(NAME) 5 800 200 200
+
+test3:	all
+		@echo "No philosopher should die and the simulation should stop when every philosopher has eaten at least 7 times."
+		./$(NAME) 5 800 200 200 7
+
+test4:	all
+		@echo "No philosopher should die."
+		./$(NAME) 4 410 200 200
+
+test5:	all
+		@echo "One philosopher should die."
+		./$(NAME) 4 310 200 200
+
+test6:	all
+		@echo "Test with 2 philosophers and check the different times: a death delayed by more than 10 ms is unacceptable."
+		./$(NAME) 2 410 200 200
 
 .PHONY:		all clean fclean re bonus
