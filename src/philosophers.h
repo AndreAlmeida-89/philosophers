@@ -6,7 +6,7 @@
 /*   By: andde-so <andde-so@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 09:50:43 by andde-so          #+#    #+#             */
-/*   Updated: 2023/06/05 17:25:19 by andde-so         ###   ########.fr       */
+/*   Updated: 2023/06/05 19:52:51 by andde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int				ft_start_threads(t_table table);
 int				ft_init_table(t_config config, t_table *table);
 void			*ft_routine(void *arg);
 int				ft_wait_threads(t_table table);
-int				ft_destroy(t_table *table);
+void			ft_destroy(t_table *table);
 int				ft_print_action(t_philo *p, t_action action);
 int				ft_wait(int milliseconds, t_philo *philo);
 
