@@ -11,6 +11,7 @@ SRC =		src/main.c					\
 			src/ft_init_table.c			\
 			src/ft_print_action.c		\
 			src/ft_wait_threads.c		\
+			src/ft_monitor.c			\
 
 
 SRC_B 	= 	src_bonus/main_bonus.c		\

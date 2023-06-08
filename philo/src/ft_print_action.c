@@ -6,7 +6,7 @@
 /*   By: andde-so <andde-so@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 09:39:32 by andde-so          #+#    #+#             */
-/*   Updated: 2023/06/05 10:00:29 by andde-so         ###   ########.fr       */
+/*   Updated: 2023/06/08 16:54:05 by andde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static const char	*ft_get_action_str(t_action action)
 int	ft_print_action(t_philo *p, t_action action)
 {
 	pthread_mutex_lock(&p->table->death_mutex);
-	if (action != DIE && p->table->dead_philosopher_id)
+	if (action != DIE && p->table->has_dead_philo)
 		return (pthread_mutex_unlock(&p->table->death_mutex));
 	pthread_mutex_unlock(&p->table->death_mutex);
 	pthread_mutex_lock(&p->table->print_mutex);

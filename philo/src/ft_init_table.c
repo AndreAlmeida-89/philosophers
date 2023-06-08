@@ -6,7 +6,7 @@
 /*   By: andde-so <andde-so@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 09:37:04 by andde-so          #+#    #+#             */
-/*   Updated: 2023/06/04 10:01:49 by andde-so         ###   ########.fr       */
+/*   Updated: 2023/06/08 14:15:28 by andde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_init_table(t_config config, t_table *table)
 	table->config = config;
 	if (ft_init_philosophers(table) == FALSE)
 		return (FALSE);
-	table->dead_philosopher_id = 0;
+	table->has_dead_philo = FALSE;
 	table->start_time = ft_now();
 	return (TRUE);
 }
