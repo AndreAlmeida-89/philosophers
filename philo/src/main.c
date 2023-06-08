@@ -6,7 +6,7 @@
 /*   By: andde-so <andde-so@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 09:49:32 by andde-so          #+#    #+#             */
-/*   Updated: 2023/06/08 16:52:33 by andde-so         ###   ########.fr       */
+/*   Updated: 2023/06/08 19:56:58 by andde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	main(int argc, const char **argv)
 	if (ft_init_table(config, &table) == FALSE)
 		return (2);
 	if (ft_start_threads(table) == FALSE)
-		return (3);
+		return (ft_destroy(&table), 3);
 	ft_monitor(&table);
 	if (ft_wait_threads(table) == FALSE)
-		return (4);
+		return (ft_destroy(&table), 4);
 	ft_destroy(&table);
 	return (0);
 }
