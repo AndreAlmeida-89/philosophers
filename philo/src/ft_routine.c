@@ -6,7 +6,7 @@
 /*   By: andde-so <andde-so@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 09:40:23 by andde-so          #+#    #+#             */
-/*   Updated: 2023/06/08 16:53:01 by andde-so         ###   ########.fr       */
+/*   Updated: 2023/06/08 22:17:59 by andde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 
 static int	ft_eat(t_philo *p)
 {
-	pthread_mutex_lock(p->right_fork);
-	pthread_mutex_lock(p->left_fork);
+	if (p->id % 2 == 0)
+	{
+		pthread_mutex_lock(p->left_fork);
+		pthread_mutex_lock(p->right_fork);
+	}
+	else
+	{
+		pthread_mutex_lock(p->right_fork);
+		pthread_mutex_lock(p->left_fork);
+	}
 	ft_print_action(p, TAKE_FORK);
 	ft_print_action(p, TAKE_FORK);
 	ft_print_action(p, EAT);
@@ -43,7 +51,7 @@ void	*ft_routine(void *arg)
 	if (p->table->config.size == 1)
 		return (ft_single_philosopher(p), NULL);
 	if (p->id % 2 == 0)
-		usleep(p->table->config.time_to_eat / 10);
+		usleep(100);
 	while (1)
 	{
 		pthread_mutex_lock(&p->table->death_mutex);
