@@ -6,7 +6,7 @@
 /*   By: andde-so <andde-so@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 09:40:23 by andde-so          #+#    #+#             */
-/*   Updated: 2023/06/08 22:17:59 by andde-so         ###   ########.fr       */
+/*   Updated: 2023/06/09 01:03:44 by andde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_eat(t_philo *p)
 	p->last_meal_time = ft_now();
 	p->number_of_meals--;
 	pthread_mutex_unlock(&p->table->death_mutex);
-	ft_wait(p->table->config.time_to_eat);
+	ft_wait(p->table->config.time_to_eat, p->table);
 	pthread_mutex_unlock(p->left_fork);
 	pthread_mutex_unlock(p->right_fork);
 	return (TRUE);
@@ -60,7 +60,7 @@ void	*ft_routine(void *arg)
 		pthread_mutex_unlock(&p->table->death_mutex);
 		ft_eat(p);
 		ft_print_action(p, SLEEP);
-		ft_wait(p->table->config.time_to_sleep);
+		ft_wait(p->table->config.time_to_sleep, p->table);
 		ft_print_action(p, THINK);
 	}
 	return (NULL);

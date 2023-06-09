@@ -6,7 +6,7 @@
 /*   By: andde-so <andde-so@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 09:31:51 by andde-so          #+#    #+#             */
-/*   Updated: 2023/06/06 01:46:01 by andde-so         ###   ########.fr       */
+/*   Updated: 2023/06/09 01:16:27 by andde-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,17 @@ static int	ft_is_numeric(int argc, const char **argv)
 	return (TRUE);
 }
 
+static int	ft_is_valig_config(t_config config, int argc)
+{
+	if (argc == 6 && config.number_of_meals < 0)
+		return (FALSE);
+	return (
+		config.size > 0
+		&& config.time_to_die > 0
+		&& config.time_to_eat > 0
+		&& config.time_to_sleep > 0);
+}
+
 int	ft_init_config(int argc, const char **argv, t_config *config)
 {
 	if ((argc != 5 && argc != 6)
@@ -41,5 +52,7 @@ int	ft_init_config(int argc, const char **argv, t_config *config)
 		config->number_of_meals = ft_atoi(argv[5]);
 	else
 		config->number_of_meals = -1;
+	if (ft_is_valig_config(*config, argc) == FALSE)
+		return (FALSE);
 	return (TRUE);
 }
